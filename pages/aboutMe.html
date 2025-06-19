@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pink-themed-portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+  :root {
+    --color-background: #f1f1e8;
+    --color-card-bg: #fafafa;
+    --color-border: #cacaca;
+    --color-text: #222222;
+    --color-text-muted: #555555;
+    --color-text-highlight: #de8692;
+    --color-note-bg: #f6f4e9;
+    --font-family: 'Inter', sans-serif;
+    --spacing: 16px;
+    --border-radius: 12px;
+    --font-size-base: 1rem;
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+  }
+
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+  background-image: url('https://i.pinimg.com/736x/e4/ba/37/e4ba37d8dc12cf384c4474c6aa06a680.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  flex-direction: column; 
+  min-height: 100vh;         
+  align-content: space-around;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  padding: var(--spacing);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Container card */
+  .profile-card {
+    background-color: transparent;
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+
+  .paw-icon {
+    color: var(--color-text-highlight);
+    font-size: 28px;
+    user-select: none;
+  }
+
+  .close-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-border);
+    font-size: 24px;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .close-button:hover,
+  .close-button:focus {
+    color: var(--color-text-muted);
+    outline: none;
+  }
+
+  /* Main Content */
+  .card-content {
+    padding: var(--spacing);
+  }
+
+  .user-info {
+    display: flex;
+    gap: var(--spacing);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing);
+    align-items: center;
+  }
+
+  .user-text {
+    flex: 1;
+  }
+
+  .user-text p {
+    margin: 0 0 var(--spacing) 0;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+  }
+
+  .user-text p strong {
+    font-weight: var(--font-weight-semibold);
+  }
+  .user-text p u {
+    text-decoration: underline;
+  }
+  .user-text p em {
+    font-style: italic;
+  }
+  .user-text p a {
+    color: var(--color-text-highlight);
+    text-decoration: none;
+  }
+  .user-text p a:hover,
+  .user-text p a:focus {
+    text-decoration: underline;
+    outline: none;
+  }
+
+  .contact-list {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .contact-list a {
+    font-weight: var(--font-weight-normal);
+    font-style: italic;
+    color: var(--color-text-highlight);
+    margin-left: 6px;
+    text-decoration: none;
+  }
+  .contact-list a:hover,
+  .contact-list a:focus {
+    text-decoration: underline;
+    outline: none;
+  }
+
+  .profile-image-container {
+    background-color: transparent;
+    margin: 10px 10px 10px 10px;
+    width: 200px;
+    min-width: 96px;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Notes and tags sections */
+  .card-note {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing);
+    padding: var(--spacing);
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+  }
+
+  .card-note strong {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .card-note i {
+    color: var(--color-text-highlight);
+    font-style: normal;
+  }
+
+  .card-note .highlight {
+    color: var(--color-text-highlight);
+    font-weight: bold;
+  }
+
+  /* tags */
+  .tags {
+    color: var(--color-text-highlight);
+    font-weight: var(--font-weight-semibold);
+    word-break: break-word;
+  }
+  .tags span {
+    margin-right: 8px;
+    cursor: default;
+    user-select: none;
+  }
+
+  /* Responsive Layout */
+  @media (max-width: 767px) {
+    body {
+      padding: 12px;
+    }
+    .profile-card {
+      max-width: 100%;
+    }
+
+    .user-info {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .profile-image-container {
+      width: 80px;
+      height: 80px;
+      min-width: unset;
+      margin-top: var(--spacing);
+      align-self: center;
+    }
+  }
+
+  @media (min-width: 768px) {
+    /* Use multi-column or three-column if extended in future - not needed for this card alone */
+  }
+
+  /* Accessibility */
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(1px,1px,1px,1px) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: -1px !important;
+  }
+</style>
+</head>
+
+<body>
+  <article class="profile-card" role="dialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescription">
+    <header class="card-header">
+      <span class="material-icons paw-icon" aria-hidden="true" title="Paw Icon">pets</span>
+      <button type="button" class="close-button" aria-label="Close dialog" onclick="window.location.href='../index.html'">
+        <span class="material-icons" aria-hidden="true">close</span>
+      </button>
+
+      </button>
+    </header>
+    <section class="card-content" id="dialogDescription">
+      <div class="user-info">
+        <div class="user-text">
+          <p><strong> info about: </strong> <a href="#" tabindex="0">@noonenooze</a>?</p>
+          <p>hello-! my name is <u>noozee</u> or nuwi <span aria-label="tilde character">~</span> twenty~one <br /> southern celestial sphere <br /> istj : logistician <br />
+          <strong>+ contact list:</strong> <a href="#" tabindex="0">pinterest</a> <a href="#" tabindex="0">spotify</a> <a href="#" tabindex="0">github</a></p>
+        </div>
+        <figure class="profile-image-container">
+          <img src="https://64.media.tumblr.com/dc5e067bfd3b847dac2bb61d2fa9fcc1/a1c03374b8652956-12/s1280x1920/b6397009c3d8460be3aff1a7b448b5c9b3c27cff.webp" alt="Young woman wearing pink hat posing thoughtful" width="96" height="96" />
+        </figure>
+      </div>
+
+      <div class="card-note" aria-label="User added note">
+        <p><strong>↳ added a note:</strong> <span class="highlight">i love</span> likes likes likes likes likes likes <span class="highlight">i hate</span> hate hate hate hate hate hate</p>
+      </div>
+
+      <div class="card-note" aria-label="User most used tags">
+        <p><strong>↳ most used tags:</strong>
+          <span class="tags" aria-label="tags">#text #text_text #text_text #text</span>
+        </p>
+      </div>
+    </section>
+  </article>
+</body>
+</html>
+

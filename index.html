@@ -1,0 +1,75 @@
+<!-- 
+
+ Author/s: Noozee (@noonenooze)
+ Date Authored: 19.06.25, 12:38PM(PHT)
+
+ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pink-themed-portfolio</title>
+<link rel="stylesheet" href="style.css"> <!-- File Path of your CSS -->
+<link rel="icon" href="https://64.media.tumblr.com/dc5e067bfd3b847dac2bb61d2fa9fcc1/a1c03374b8652956-12/s500x750/504b924706f50a1b3aca85673c70685d7c20ab27.webp" type="image/png">
+</head>
+
+
+
+<body>
+  <article class="profile-card" role="dialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescription">
+    <header class="card-header">
+      <span class="material-icons paw-icon" aria-hidden="true" title="Paw Icon">pets</span>
+
+    </header>
+    <section class="card-content" id="dialogDescription">
+        <div class="user-about">
+            <div class="user-header">
+                <h1 id="clock">Loading</h1>
+                <p id="date">Loading</p>
+            </div>
+            <div class="user-description">
+                <p>-- made by noonenooze ✦︎</p>
+                <p>-- inspired from mokajangz</p>
+
+            </div>
+            <div class="user-navigation">
+            <nav class="user-nav-bar">
+                <ul class="user-nav-list">
+                <li><a href="./pages/aboutMe.html">about</a></li>
+                <li><a href="./pages/portfolio.html">projects</a></li>
+                </ul>
+            </nav>
+            </div>
+
+        </div>
+    </section>
+  </article>
+
+<!-- Javasactipt real-time Time and Date -->
+
+<script>
+  function updateClock() {
+    const now = new Date();
+
+    // Time
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+    // Date
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateString = now.toLocaleDateString(undefined, options);
+    document.getElementById('date').textContent = dateString;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
+</body>
+</htm
